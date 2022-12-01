@@ -20,3 +20,10 @@ class Vectorization:
         train_x_tfidf = tfidf_vec_train.transform(self.train_doc)
         test_x_tfidf = tfidf_vec_train.transform(self.test_doc)
         return train_x_tfidf, test_x_tfidf
+
+    def N_gram(self, n):
+        count_vec = CountVectorizer(ngram_range=(1, n))
+        count_vec_train = count_vec.fit(self.corpus)
+        train_x_count_vec = count_vec_train.transform(self.train_doc)
+        test_x_count_vec = count_vec_train.transform(self.test_doc)
+        return train_x_count_vec, test_x_count_vec

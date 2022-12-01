@@ -14,7 +14,7 @@ from sklearn.svm import SVC
 
 
 # Data Loading
-train_data, train_y = read_train_data(True, Batch_number=40000)
+train_data, train_y = read_train_data(True, Batch_number=20000)
 
 # Split training data
 X_train, X_test, y_train, y_test = train_test_split(train_data, train_y, test_size=0.25, random_state=42)
@@ -27,7 +27,7 @@ test_corpus, test_doc = preproc_test.streamline()
 
 # Vectorization
 vect_method = Vectorization(train_corpus, train_doc, test_doc)
-train_X_vect, test_X_vect = vect_method.Counter_Vec()
+train_X_vect, test_X_vect = vect_method.N_gram(n=2)
 
 # Train Model
 print("======= Start Training =======")
