@@ -22,8 +22,8 @@ X_train, X_test, y_train, y_test = train_test_split(train_data, train_y, test_si
 # Data Pre-Processing
 preproc_train = Pre_processing(X_train)
 preproc_test = Pre_processing(X_test)
-train_corpus, train_doc = preproc_train.streamline()
-test_corpus, test_doc = preproc_test.streamline()
+train_corpus, train_doc, train_sents = preproc_train.streamline()
+test_corpus, test_doc, test_sents = preproc_test.streamline()
 
 # Vectorization
 vect_method = Vectorization(train_corpus, train_doc, test_doc)

@@ -41,7 +41,8 @@ class Pre_processing:
         corpus = []
         for sen in self.data_cleaned:
             for w in sen:
-                corpus.append(w)
+                if w not in corpus:
+                    corpus.append(w)
         self.word_corpus = corpus
         return self.word_corpus
 
@@ -53,4 +54,4 @@ class Pre_processing:
         self.data_clean()
         self.create_corpus()
         self.create_document()
-        return self.word_corpus, self.document
+        return self.word_corpus, self.document, self.data_cleaned
