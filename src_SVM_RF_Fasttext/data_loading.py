@@ -18,9 +18,13 @@ def read_text(filepath):
     return contents
 
 
-def read_train_data(IF_BATCH=True, Batch_number=20000):
-    train_neg_data = read_text(train_neg_path)
-    train_pos_data = read_text(train_pos_path)
+def read_train_data(IF_BATCH=True, Batch_number=20000, full=False):
+    if full:
+        train_neg_data = read_text(train_neg_full_path)
+        train_pos_data = read_text(train_pos_full_path)
+    else:
+        train_neg_data = read_text(train_neg_path)
+        train_pos_data = read_text(train_pos_path)
     train_y_neg = np.zeros(len(train_neg_data)) - 1
     train_y_pos = np.ones(len(train_pos_data))
 
@@ -32,4 +36,6 @@ def read_train_data(IF_BATCH=True, Batch_number=20000):
 
     return train_x, train_y
         
+def read_test_data():
+    return read_text(test_path)
         
