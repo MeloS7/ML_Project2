@@ -7,16 +7,16 @@ from helpers import eval_accuracy
 
 
 class DNN(nn.Module):
-    def __init__(self, input_size, output_size=1, seed=42):
+    def __init__(self, input_size, output_size=1, hidden_size=64, seed=42):
         super(DNN, self).__init__()
         
         # params
-        fc1_units = 64
+        fc1_units = hidden_size
 
         torch.manual_seed(seed)
         self.fc1 = nn.Linear(input_size, fc1_units)
         self.fc2 = nn.Linear(fc1_units, output_size)
-        self.dropout = nn.Dropout(p=0.3)
+        self.dropout = nn.Dropout(p=0.1)
 
     def forward(self, x):
         x = F.relu(self.fc1(x))

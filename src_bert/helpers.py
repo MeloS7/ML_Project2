@@ -2,6 +2,7 @@ import csv
 import numpy as np
 import pandas as pd
 import torch
+import matplotlib.pyplot as plt
 from preprocess import basic_clean_tweet
 
 
@@ -55,3 +56,20 @@ def make_prediction(pred, zero_one=True):
     if not zero_one:
         pred = 2 * pred - 1
     return pred.to(torch.int32)
+    
+"""
+    Plots
+"""
+def plot_results(results: dict):
+    fig, ax = plt.subplots(1,2, figsize=(10,4))
+    for name in ['l_tr', 'l_te']:
+        ax[0].plot(results["iter"], results[name], label=name)
+    ax[0].set_title("loss")
+    ax[0].set_xlabel("iteration")
+    ax[0].legend(loc="best")
+    for name in ['acc_tr', 'acc_te']:
+        ax[1].plot(results["iter"], results[name], label=name)
+    ax[1].set_title("accuracy")
+    ax[1].set_xlabel("iteration")
+    ax[1].legend(loc="best")
+    return ax

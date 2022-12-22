@@ -10,6 +10,7 @@ class DatasetBERT(Dataset):
     Dataset for BERT model. 
     """
     # Load BERT tokenizer for preprocessing
+    # tokenizer = ppb.RobertaTokenizer.from_pretrained("roberta-base")
     tokenizer = ppb.DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
     # length of result tweets when padding / truncating
     max_len = 60
