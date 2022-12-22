@@ -35,6 +35,21 @@ For more details on the background of the project, please check out AIcrowd's [p
   - pre_processing.py, which contains a class Pre_processing to implement all data pre-processing relevant methods.
   
   - vectorization.py, which contains a class Vectorization to implement all kinds of vectorization/word embedding methods.
+  
+- In ./src_bert, you can find source code for fine-tuning BERT-based models. 
+  For some of the python scripts, we also provide corresponding ipynb version which can be run directly on Google Colab. 
+  Please track for the parameters at beginning of the file before running any script.
+  You can find inside this directory:
+ 
+  -  train.py, which performs complete fine-tuning of the pre-trained BERT model and store the final model to the directory ./models (please make sure this directory always exists before running this script).
+  
+  - run.py, which load a torch model produced by the file train.py and create in the directory ./data/ a file sample_submission.csv .
+  
+  - preprocess.py, which performs basic cleaning on the data and split original data into two files, one for training and the other for validation. 
+  
+  - build_model.py, in which our models and training process are defined. 
+  
+  - dataloader.py, in which a torch Dataset class is defined.
 
 ## About the data
 
